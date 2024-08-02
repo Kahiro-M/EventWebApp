@@ -1,0 +1,70 @@
+-- phpMyAdmin SQL Dump
+-- version 5.2.0
+-- https://www.phpmyadmin.net/
+--
+-- ホスト: mysql
+-- 生成日時: 2024 年 8 月 02 日 07:29
+-- サーバのバージョン： 5.7.41
+-- PHP のバージョン: 8.0.19
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- データベース: `sample`
+--
+
+-- --------------------------------------------------------
+
+--
+-- テーブルの構造 `user`
+--
+
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL,
+  `login_id` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `user_name` varchar(255) DEFAULT NULL,
+  `admin` tinyint(1) NOT NULL COMMENT '管理者権限'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- テーブルのデータのダンプ `user`
+--
+
+INSERT INTO `user` (`id`, `login_id`, `password`, `user_name`, `admin`) VALUES
+(1, 'sample', '$2y$10$/75Xmw2mQKekxFjXZA34MeE4anpXvGIHyQ0QQudodouiulZGLMI0O', 'サンプル太郎', 0),
+(2, 'admin', '$2y$10$PbhEm/Yptp/o6XIVGCxAoud6Oultus08yMggRbytWLetUj1JLjC/O', '管理太郎', 1);
+
+--
+-- ダンプしたテーブルのインデックス
+--
+
+--
+-- テーブルのインデックス `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `login_id` (`login_id`);
+
+--
+-- ダンプしたテーブルの AUTO_INCREMENT
+--
+
+--
+-- テーブルの AUTO_INCREMENT `user`
+--
+ALTER TABLE `user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

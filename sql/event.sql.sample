@@ -1,0 +1,96 @@
+-- phpMyAdmin SQL Dump
+-- version 5.2.0
+-- https://www.phpmyadmin.net/
+--
+-- ホスト: mysql
+-- 生成日時: 2024 年 8 月 02 日 07:27
+-- サーバのバージョン： 5.7.41
+-- PHP のバージョン: 8.0.19
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- データベース: `sample`
+--
+
+-- --------------------------------------------------------
+
+--
+-- テーブルの構造 `event`
+--
+
+CREATE TABLE `event` (
+  `id` int(11) NOT NULL,
+  `member_code` varchar(6) DEFAULT NULL COMMENT '会員番号',
+  `member_name` varchar(255) DEFAULT NULL COMMENT '販売店名',
+  `member_type` varchar(255) DEFAULT NULL COMMENT '種別',
+  `member_class` varchar(255) DEFAULT NULL COMMENT 'クラス',
+  `organizer_name` varchar(255) DEFAULT NULL COMMENT '主催者名',
+  `event_name` varchar(255) NOT NULL COMMENT 'イベント名',
+  `event_type` varchar(255) NOT NULL COMMENT 'イベント種別',
+  `event_date` date NOT NULL COMMENT '開催日',
+  `start_time` time NOT NULL COMMENT '開催時刻',
+  `end_time` time NOT NULL COMMENT '終了時刻',
+  `pref_name` varchar(255) NOT NULL COMMENT 'エリア（県）',
+  `area_block` varchar(255) NOT NULL COMMENT 'エリア（ブロック）',
+  `area_city` varchar(255) DEFAULT NULL COMMENT 'エリア（市町村）',
+  `place_name` varchar(255) DEFAULT NULL COMMENT '開催場所',
+  `instructor_type` varchar(255) NOT NULL COMMENT '講師種別',
+  `instructor_1_name` varchar(255) DEFAULT NULL COMMENT '社員講師1',
+  `instructor_2_name` varchar(255) DEFAULT NULL COMMENT '社員講師2',
+  `instructor_name` varchar(255) DEFAULT NULL COMMENT '講師名',
+  `no_read_user_num` int(11) DEFAULT NULL COMMENT '未読者数',
+  `read_user_num` int(11) DEFAULT NULL COMMENT '読者数',
+  `event_report` text COMMENT 'イベント報告',
+  `boss_comment` text COMMENT '上司コメント',
+  `remark` text COMMENT '備考',
+  `viewing_movie` text COMMENT '動画視聴実施',
+  `questionnaire` text COMMENT 'アンケート',
+  `created_user` varchar(255) DEFAULT NULL COMMENT '作成者',
+  `updated_user` varchar(255) DEFAULT NULL COMMENT '更新者',
+  `created_user_name` varchar(255) DEFAULT NULL COMMENT '作成者名',
+  `updated_user_name` varchar(255) DEFAULT NULL COMMENT '更新者名',
+  `created` timestamp NULL DEFAULT NULL COMMENT '作成日時',
+  `updated` timestamp NULL DEFAULT NULL COMMENT '更新日時'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- テーブルのデータのダンプ `event`
+--
+
+INSERT INTO `event` (`id`, `member_code`, `member_name`, `member_type`, `member_class`, `organizer_name`, `event_name`, `event_type`, `event_date`, `start_time`, `end_time`, `pref_name`, `area_block`, `area_city`, `place_name`, `instructor_type`, `instructor_1_name`, `instructor_2_name`, `instructor_name`, `no_read_user_num`, `read_user_num`, `event_report`, `boss_comment`, `remark`, `viewing_movie`, `questionnaire`, `created_user`, `updated_user`, `created_user_name`, `updated_user_name`, `created`, `updated`) VALUES
+(1, '123456', 'サンプル太郎', 'タイプ4', 'B', '', 'サンプル太郎さんのウェビナー', 'ウェビナー', '2024-08-01', '07:30:00', '08:00:00', 'オンライン', 'オンライン', 'オンライン', 'オンライン', '社員', '試験 太郎', '試験 次郎', '', 5, 10, 'オンラインでサンプル太郎さんのウェビナー実施しましてん。\r\n朝っぱらからやりましたわ。', 'えらい早くからやるやん。\r\nちゃんと時間外申請してや。', '要経費精算', 'TRUE', 'TRUE', 'sample', 'admin', 'サンプル太郎', '管理太郎', '2024-08-02 07:21:50', '2024-08-02 07:25:15'),
+(2, '', '', '', '', '名無権兵衛', '名無権兵衛研修会', '研修会', '2024-07-01', '13:30:00', '15:30:00', '大阪府', '近畿', '大阪市北浜', '名無権兵衛ホール', '外部', '', '', '名無権兵衛', 50, 0, '名無権兵衛さんが研修会を実施してん。\r\nそのサポートしたんやで。', '名無さんってほんまの名前かいな？', '別途、詳細報告すること。', 'FALSE', 'FALSE', 'sample', 'admin', 'サンプル太郎', '管理太郎', '2024-08-02 07:24:28', '2024-08-02 07:26:26');
+
+--
+-- ダンプしたテーブルのインデックス
+--
+
+--
+-- テーブルのインデックス `event`
+--
+ALTER TABLE `event`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- ダンプしたテーブルの AUTO_INCREMENT
+--
+
+--
+-- テーブルの AUTO_INCREMENT `event`
+--
+ALTER TABLE `event`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

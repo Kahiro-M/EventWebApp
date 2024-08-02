@@ -1,0 +1,5 @@
+# Redirect
+RewriteEngine On
+
+# base path
+RewriteBase /

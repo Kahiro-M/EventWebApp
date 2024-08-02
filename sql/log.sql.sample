@@ -1,0 +1,89 @@
+-- phpMyAdmin SQL Dump
+-- version 5.2.0
+-- https://www.phpmyadmin.net/
+--
+-- ホスト: mysql
+-- 生成日時: 2024 年 8 月 02 日 07:27
+-- サーバのバージョン： 5.7.41
+-- PHP のバージョン: 8.0.19
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- データベース: `app_log`
+--
+
+-- --------------------------------------------------------
+
+--
+-- テーブルの構造 `log`
+--
+
+CREATE TABLE `log` (
+  `id` int(11) NOT NULL,
+  `datetime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `session` varchar(255) DEFAULT NULL,
+  `user` varchar(255) DEFAULT NULL,
+  `method` varchar(255) DEFAULT NULL,
+  `param` text,
+  `post` text,
+  `message` text
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- テーブルのデータのダンプ `log`
+--
+
+INSERT INTO `log` (`id`, `datetime`, `session`, `user`, `method`, `param`, `post`, `message`) VALUES
+(1, '2024-08-02 16:19:21', 'fcab110e2f2741a37f92ec00a6e780d8', '[サンプル太郎(sample)一般]', '', '', '', 'ログイン成功'),
+(2, '2024-08-02 16:21:50', 'fcab110e2f2741a37f92ec00a6e780d8', '[サンプル太郎(sample)一般]', 'POST', '', 'array(27) {\n  [\"member_code\"]=>\n  string(6) \"123456\"\n  [\"member_name\"]=>\n  string(18) \"サンプル太郎\"\n  [\"member_type\"]=>\n  string(10) \"タイプ4\"\n  [\"member_class\"]=>\n  string(1) \"B\"\n  [\"event_name\"]=>\n  string(42) \"サンプル太郎さんのウェビナー\"\n  [\"event_type\"]=>\n  string(15) \"ウェビナー\"\n  [\"event_date\"]=>\n  string(10) \"2024-08-01\"\n  [\"start_time\"]=>\n  string(5) \"07:30\"\n  [\"end_time\"]=>\n  string(5) \"08:00\"\n  [\"pref_name\"]=>\n  string(15) \"オンライン\"\n  [\"area_city\"]=>\n  string(15) \"オンライン\"\n  [\"place_name\"]=>\n  string(15) \"オンライン\"\n  [\"instructor_type\"]=>\n  string(6) \"社員\"\n  [\"instructor_1_name\"]=>\n  string(13) \"試験 太郎\"\n  [\"instructor_2_name\"]=>\n  string(13) \"試験 次郎\"\n  [\"instructor_name\"]=>\n  string(0) \"\"\n  [\"no_read_user_num\"]=>\n  string(1) \"5\"\n  [\"read_user_num\"]=>\n  string(2) \"10\"\n  [\"event_report\"]=>\n  string(125) \"オンラインでサンプル太郎さんのウェビナー実施しましてん。\r\n朝っぱらからやりましたわ。\"\n  [\"boss_comment\"]=>\n  string(0) \"\"\n  [\"remark\"]=>\n  string(0) \"\"\n  [\"viewing_movie\"]=>\n  string(4) \"TRUE\"\n  [\"questionnaire\"]=>\n  string(4) \"TRUE\"\n  [\"uuid\"]=>\n  string(36) \"71e69f99-e62d-426a-be63-d3c6d124e446\"\n  [\"status\"]=>\n  string(7) \"confirm\"\n  [\"organizer_name\"]=>\n  string(0) \"\"\n  [\"area_block\"]=>\n  string(15) \"オンライン\"\n}\n', 'イベント情報入力 | 完了\n                SQL:\n                INSERT INTO `event` (`id`,`member_code`,`member_name`,`member_type`,`member_class`,`organizer_name`,`event_name`,`event_type`,`event_date`,`start_time`,`end_time`,`pref_name`,`area_block`,`area_city`,`place_name`,`instructor_type`,`instructor_1_name`,`instructor_2_name`,`instructor_name`,`no_read_user_num`,`read_user_num`,`event_report`,`boss_comment`,`remark`,`viewing_movie`,`questionnaire`,`created_user`,`updated_user`,`created_user_name`,`updated_user_name`,`created`,`updated`) VALUES(NULL,\'123456\',\'サンプル太郎\',\'タイプ4\',\'B\',\'\',\'サンプル太郎さんのウェビナー\',\'ウェビナー\',\'2024-08-01\',\'07:30\',\'08:00\',\'オンライン\',\'オンライン\',\'オンライン\',\'オンライン\',\'社員\',\'試験 太郎\',\'試験 次郎\',\'\',\'5\',\'10\',\'オンラインでサンプル太郎さんのウェビナー実施しましてん。\r\n朝っぱらからやりましたわ。\',\'\',\'\',\'TRUE\',\'TRUE\',\'sample\',\'sample\',\'サンプル太郎\',\'サンプル太郎\',\'2024-08-02 16:21:50\',\'2024-08-02 16:21:50\')'),
+(3, '2024-08-02 16:24:28', 'fcab110e2f2741a37f92ec00a6e780d8', '[サンプル太郎(sample)一般]', 'POST', '', 'array(24) {\n  [\"organizer_name\"]=>\n  string(15) \"名無権兵衛\"\n  [\"event_name\"]=>\n  string(24) \"名無権兵衛研修会\"\n  [\"event_type\"]=>\n  string(9) \"研修会\"\n  [\"event_date\"]=>\n  string(10) \"2024-07-01\"\n  [\"start_time\"]=>\n  string(5) \"13:30\"\n  [\"end_time\"]=>\n  string(5) \"15:30\"\n  [\"pref_name\"]=>\n  string(9) \"大阪府\"\n  [\"area_city\"]=>\n  string(15) \"大阪市北浜\"\n  [\"place_name\"]=>\n  string(24) \"名無権兵衛ホール\"\n  [\"instructor_type\"]=>\n  string(6) \"外部\"\n  [\"instructor_1_name\"]=>\n  string(0) \"\"\n  [\"instructor_2_name\"]=>\n  string(0) \"\"\n  [\"instructor_name\"]=>\n  string(15) \"名無権兵衛\"\n  [\"no_read_user_num\"]=>\n  string(2) \"50\"\n  [\"read_user_num\"]=>\n  string(1) \"0\"\n  [\"event_report\"]=>\n  string(92) \"名無権兵衛さんが研修会を実施してん。\r\nそのサポートしたんやで。\"\n  [\"boss_comment\"]=>\n  string(0) \"\"\n  [\"remark\"]=>\n  string(0) \"\"\n  [\"viewing_movie\"]=>\n  string(5) \"FALSE\"\n  [\"questionnaire\"]=>\n  string(5) \"FALSE\"\n  [\"member_code\"]=>\n  string(0) \"\"\n  [\"uuid\"]=>\n  string(36) \"ad6be134-d693-4812-919d-74a58d6f6f28\"\n  [\"status\"]=>\n  string(7) \"confirm\"\n  [\"area_block\"]=>\n  string(6) \"近畿\"\n}\n', 'イベント情報入力 | 完了\n                SQL:\n                INSERT INTO `event` (`id`,`member_code`,`member_name`,`member_type`,`member_class`,`organizer_name`,`event_name`,`event_type`,`event_date`,`start_time`,`end_time`,`pref_name`,`area_block`,`area_city`,`place_name`,`instructor_type`,`instructor_1_name`,`instructor_2_name`,`instructor_name`,`no_read_user_num`,`read_user_num`,`event_report`,`boss_comment`,`remark`,`viewing_movie`,`questionnaire`,`created_user`,`updated_user`,`created_user_name`,`updated_user_name`,`created`,`updated`) VALUES(NULL,\'\',\'\',\'\',\'\',\'名無権兵衛\',\'名無権兵衛研修会\',\'研修会\',\'2024-07-01\',\'13:30\',\'15:30\',\'大阪府\',\'近畿\',\'大阪市北浜\',\'名無権兵衛ホール\',\'外部\',\'\',\'\',\'名無権兵衛\',\'50\',\'0\',\'名無権兵衛さんが研修会を実施してん。\r\nそのサポートしたんやで。\',\'\',\'\',\'FALSE\',\'FALSE\',\'sample\',\'sample\',\'サンプル太郎\',\'サンプル太郎\',\'2024-08-02 16:24:28\',\'2024-08-02 16:24:28\')'),
+(4, '2024-08-02 16:24:30', 'fcab110e2f2741a37f92ec00a6e780d8', '[サンプル太郎(sample)一般]', 'GET', '', '', 'イベント情報照会\n    SQL:SELECT * FROM `event` WHERE `event_name` LIKE \'%%\''),
+(5, '2024-08-02 16:24:36', 'fcab110e2f2741a37f92ec00a6e780d8', '[サンプル太郎(sample)一般]', 'GET', 'array(1) {\n  [\"id\"]=>\n  string(1) \"1\"\n}\n', '', 'イベント情報照会 | 詳細\n    SQL:\n    SELECT * FROM `event` WHERE `id`=\'1\''),
+(6, '2024-08-02 16:24:38', 'fcab110e2f2741a37f92ec00a6e780d8', '[サンプル太郎(sample)一般]', 'GET', '', '', 'イベント情報照会\n    SQL:SELECT * FROM `event` WHERE `event_name` LIKE \'%%\''),
+(7, '2024-08-02 16:24:39', 'fcab110e2f2741a37f92ec00a6e780d8', '[サンプル太郎(sample)一般]', 'GET', 'array(1) {\n  [\"id\"]=>\n  string(1) \"2\"\n}\n', '', 'イベント情報照会 | 詳細\n    SQL:\n    SELECT * FROM `event` WHERE `id`=\'2\''),
+(8, '2024-08-02 16:24:45', 'fcab110e2f2741a37f92ec00a6e780d8', '[サンプル太郎(sample)一般]', 'POST', '', '', 'ログアウト試行'),
+(9, '2024-08-02 16:24:45', '', '', 'POST', '', '', 'ログアウト'),
+(10, '2024-08-02 16:24:49', '015ee5df96b6d656ca603909c4d0104d', '', 'POST', '', 'array(2) {\n  [\"login_id\"]=>\n  string(5) \"admin\"\n  [\"password\"]=>\n  string(0) \"\"\n}\n', 'ログイン失敗\n            SQL:\n            SELECT * FROM `user` WHERE `login_id` LIKE \'admin\''),
+(11, '2024-08-02 16:24:52', '90aa9ffa8eb041a610736689100e6c13', '[管理太郎(admin)管理者]', '', '', '', 'ログイン成功'),
+(12, '2024-08-02 16:24:57', '90aa9ffa8eb041a610736689100e6c13', '[管理太郎(admin)管理者]', 'GET', '', '', 'イベント情報照会\n    SQL:SELECT * FROM `event` WHERE `event_name` LIKE \'%%\''),
+(13, '2024-08-02 16:24:59', '90aa9ffa8eb041a610736689100e6c13', '[管理太郎(admin)管理者]', 'GET', 'array(1) {\n  [\"id\"]=>\n  string(1) \"1\"\n}\n', '', 'イベント情報照会 | 詳細\n    SQL:\n    SELECT * FROM `event` WHERE `id`=\'1\''),
+(14, '2024-08-02 16:25:15', '90aa9ffa8eb041a610736689100e6c13', '[管理太郎(admin)管理者]', 'POST', '', 'array(29) {\n  [\"id\"]=>\n  string(1) \"1\"\n  [\"member_code\"]=>\n  string(6) \"123456\"\n  [\"member_name\"]=>\n  string(18) \"サンプル太郎\"\n  [\"member_type\"]=>\n  string(10) \"タイプ4\"\n  [\"member_class\"]=>\n  string(1) \"B\"\n  [\"event_name\"]=>\n  string(42) \"サンプル太郎さんのウェビナー\"\n  [\"event_type\"]=>\n  string(15) \"ウェビナー\"\n  [\"event_date\"]=>\n  string(10) \"2024-08-01\"\n  [\"start_time\"]=>\n  string(5) \"07:30\"\n  [\"end_time\"]=>\n  string(5) \"08:00\"\n  [\"pref_name\"]=>\n  string(15) \"オンライン\"\n  [\"area_city\"]=>\n  string(15) \"オンライン\"\n  [\"place_name\"]=>\n  string(15) \"オンライン\"\n  [\"instructor_type\"]=>\n  string(6) \"社員\"\n  [\"instructor_1_name\"]=>\n  string(13) \"試験 太郎\"\n  [\"instructor_2_name\"]=>\n  string(13) \"試験 次郎\"\n  [\"instructor_name\"]=>\n  string(0) \"\"\n  [\"no_read_user_num\"]=>\n  string(1) \"5\"\n  [\"read_user_num\"]=>\n  string(2) \"10\"\n  [\"event_report\"]=>\n  string(125) \"オンラインでサンプル太郎さんのウェビナー実施しましてん。\r\n朝っぱらからやりましたわ。\"\n  [\"boss_comment\"]=>\n  string(77) \"えらい早くからやるやん。\r\nちゃんと時間外申請してや。\"\n  [\"remark\"]=>\n  string(15) \"要経費精算\"\n  [\"viewing_movie\"]=>\n  string(4) \"TRUE\"\n  [\"questionnaire\"]=>\n  string(4) \"TRUE\"\n  [\"uuid\"]=>\n  string(36) \"aafb69df-212b-43e4-9ad4-fef740db4291\"\n  [\"is_update\"]=>\n  string(4) \"true\"\n  [\"status\"]=>\n  string(7) \"confirm\"\n  [\"organizer_name\"]=>\n  string(0) \"\"\n  [\"area_block\"]=>\n  string(15) \"オンライン\"\n}\n', 'イベント情報入力 | 完了\n                SQL:\n                UPDATE `event` SET `member_code`=\'123456\',`member_name`=\'サンプル太郎\',`member_type`=\'タイプ4\',`member_class`=\'B\',`organizer_name`=\'\',`event_name`=\'サンプル太郎さんのウェビナー\',`event_type`=\'ウェビナー\',`event_date`=\'2024-08-01\',`start_time`=\'07:30\',`end_time`=\'08:00\',`pref_name`=\'オンライン\',`area_block`=\'オンライン\',`area_city`=\'オンライン\',`place_name`=\'オンライン\',`instructor_type`=\'社員\',`instructor_1_name`=\'試験 太郎\',`instructor_2_name`=\'試験 次郎\',`instructor_name`=\'\',`no_read_user_num`=\'5\',`read_user_num`=\'10\',`event_report`=\'オンラインでサンプル太郎さんのウェビナー実施しましてん。\\r\\n朝っぱらからやりましたわ。\',`boss_comment`=\'えらい早くからやるやん。\\r\\nちゃんと時間外申請してや。\',`remark`=\'要経費精算\',`viewing_movie`=\'TRUE\',`questionnaire`=\'TRUE\',`updated_user` = \'admin\',`updated_user_name` = \'管理太郎\',`updated` = \'2024-08-02 16:25:15\' WHERE `event`.`id` = \'1\''),
+(15, '2024-08-02 16:25:16', '90aa9ffa8eb041a610736689100e6c13', '[管理太郎(admin)管理者]', 'GET', '', '', 'イベント情報照会\n    SQL:SELECT * FROM `event` WHERE `event_name` LIKE \'%%\''),
+(16, '2024-08-02 16:25:17', '90aa9ffa8eb041a610736689100e6c13', '[管理太郎(admin)管理者]', 'GET', 'array(1) {\n  [\"id\"]=>\n  string(1) \"2\"\n}\n', '', 'イベント情報照会 | 詳細\n    SQL:\n    SELECT * FROM `event` WHERE `id`=\'2\''),
+(17, '2024-08-02 16:26:26', '90aa9ffa8eb041a610736689100e6c13', '[管理太郎(admin)管理者]', 'POST', '', 'array(26) {\n  [\"id\"]=>\n  string(1) \"2\"\n  [\"organizer_name\"]=>\n  string(15) \"名無権兵衛\"\n  [\"event_name\"]=>\n  string(24) \"名無権兵衛研修会\"\n  [\"event_type\"]=>\n  string(9) \"研修会\"\n  [\"event_date\"]=>\n  string(10) \"2024-07-01\"\n  [\"start_time\"]=>\n  string(5) \"13:30\"\n  [\"end_time\"]=>\n  string(5) \"15:30\"\n  [\"pref_name\"]=>\n  string(9) \"大阪府\"\n  [\"area_city\"]=>\n  string(15) \"大阪市北浜\"\n  [\"place_name\"]=>\n  string(24) \"名無権兵衛ホール\"\n  [\"instructor_type\"]=>\n  string(6) \"外部\"\n  [\"instructor_1_name\"]=>\n  string(0) \"\"\n  [\"instructor_2_name\"]=>\n  string(0) \"\"\n  [\"instructor_name\"]=>\n  string(15) \"名無権兵衛\"\n  [\"no_read_user_num\"]=>\n  string(2) \"50\"\n  [\"read_user_num\"]=>\n  string(1) \"0\"\n  [\"event_report\"]=>\n  string(92) \"名無権兵衛さんが研修会を実施してん。\r\nそのサポートしたんやで。\"\n  [\"boss_comment\"]=>\n  string(48) \"名無さんってほんまの名前かいな？\"\n  [\"remark\"]=>\n  string(36) \"別途、詳細報告すること。\"\n  [\"viewing_movie\"]=>\n  string(5) \"FALSE\"\n  [\"questionnaire\"]=>\n  string(5) \"FALSE\"\n  [\"member_code\"]=>\n  string(0) \"\"\n  [\"uuid\"]=>\n  string(36) \"b69a5b65-1b28-4c42-83b5-a933a98f7983\"\n  [\"is_update\"]=>\n  string(4) \"true\"\n  [\"status\"]=>\n  string(7) \"confirm\"\n  [\"area_block\"]=>\n  string(6) \"近畿\"\n}\n', 'イベント情報入力 | 完了\n                SQL:\n                UPDATE `event` SET `member_code`=\'\',`organizer_name`=\'名無権兵衛\',`event_name`=\'名無権兵衛研修会\',`event_type`=\'研修会\',`event_date`=\'2024-07-01\',`start_time`=\'13:30\',`end_time`=\'15:30\',`pref_name`=\'大阪府\',`area_block`=\'近畿\',`area_city`=\'大阪市北浜\',`place_name`=\'名無権兵衛ホール\',`instructor_type`=\'外部\',`instructor_1_name`=\'\',`instructor_2_name`=\'\',`instructor_name`=\'名無権兵衛\',`no_read_user_num`=\'50\',`read_user_num`=\'0\',`event_report`=\'名無権兵衛さんが研修会を実施してん。\\r\\nそのサポートしたんやで。\',`boss_comment`=\'名無さんってほんまの名前かいな？\',`remark`=\'別途、詳細報告すること。\',`viewing_movie`=\'FALSE\',`questionnaire`=\'FALSE\',`updated_user` = \'admin\',`updated_user_name` = \'管理太郎\',`updated` = \'2024-08-02 16:26:26\' WHERE `event`.`id` = \'2\''),
+(18, '2024-08-02 16:26:44', '90aa9ffa8eb041a610736689100e6c13', '[管理太郎(admin)管理者]', 'POST', '', '', 'ログアウト試行'),
+(19, '2024-08-02 16:26:44', '', '', 'POST', '', '', 'ログアウト');
+
+--
+-- ダンプしたテーブルのインデックス
+--
+
+--
+-- テーブルのインデックス `log`
+--
+ALTER TABLE `log`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- ダンプしたテーブルの AUTO_INCREMENT
+--
+
+--
+-- テーブルの AUTO_INCREMENT `log`
+--
+ALTER TABLE `log`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

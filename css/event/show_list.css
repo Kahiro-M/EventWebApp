@@ -1,0 +1,21 @@
+.label-start::before {
+    content: "いつから";
+    text-align: center;
+    color: lightskyblue;
+    font-size: 12px;
+}
+
+.label-end::before {
+    content: "いつまで";
+    text-align: center;
+    color: lightskyblue;
+    font-size: 12px;
+}
+
+.show-detail-icon {
+    text-decoration: none;
+}
+
+.search-container .search-title:hover{
+    cursor: pointer;
+}

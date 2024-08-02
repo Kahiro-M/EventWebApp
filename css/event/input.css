@@ -1,0 +1,56 @@
+div.label:has(+ div.input *:required):after{
+    color: red;
+    content:"*";
+    font-weight: 700;
+    font-size: large;
+}
+
+.err{
+    color: #ff000099;
+    font-weight: 700;
+    font-size: small;
+}
+
+.err::before{
+    color: #ff000099;
+    content:"　ERROR: ";
+    font-weight: 700;
+    font-size: small;
+}
+
+option.block-10{
+    background-color: rgb(247, 254, 231);
+}
+option.block-20{
+    background-color: rgb(236, 253, 245);
+}
+option.block-25{
+    background-color: rgb(236, 254, 255);
+}
+option.block-26{
+    background-color: rgb(239, 246, 255);
+}
+option.block-30{
+    background-color: rgb(245, 243, 255);
+}
+option.block-40{
+    background-color: rgb(253, 244, 255);
+}
+option.block-50{
+    background-color: rgb(255, 247, 237);
+}
+option.block-60{
+    background-color: rgb(254, 252, 232);
+}
+option.block-70{
+    background-color: rgb(236, 252, 203);
+}
+option.block-80{
+    background-color: rgb(209, 250, 229);
+}
+option.block-90{
+    background-color: rgb(207, 250, 254);
+}
+option.block-99{
+    background-color: rgb(231, 229, 228);
+}

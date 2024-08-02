@@ -1,0 +1,60 @@
+-- phpMyAdmin SQL Dump
+-- version 5.2.0
+-- https://www.phpmyadmin.net/
+--
+-- ホスト: mysql
+-- 生成日時: 2024 年 8 月 02 日 07:27
+-- サーバのバージョン： 5.7.41
+-- PHP のバージョン: 8.0.19
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- データベース: `sample`
+--
+
+-- --------------------------------------------------------
+
+--
+-- テーブルの構造 `member`
+--
+
+CREATE TABLE `member` (
+  `member_code` varchar(6) NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `name_kana` varchar(255) DEFAULT NULL,
+  `name_title` varchar(2) DEFAULT NULL,
+  `type` int(1) DEFAULT NULL,
+  `class` varchar(3) DEFAULT NULL,
+  `reg_date` varchar(8) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- テーブルのデータのダンプ `member`
+--
+
+INSERT INTO `member` (`member_code`, `name`, `name_kana`, `name_title`, `type`, `class`, `reg_date`) VALUES
+('123456', 'サンプル太郎', 'サンプルタロウ', '様', 4, '030', '20240802');
+
+--
+-- ダンプしたテーブルのインデックス
+--
+
+--
+-- テーブルのインデックス `member`
+--
+ALTER TABLE `member`
+  ADD PRIMARY KEY (`member_code`);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
